@@ -8,7 +8,6 @@ const Stack = createNativeStackNavigator();
 const Auth_stack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-
             <Stack.Screen name={SCREEN_NAMES.Sign_up} component={Sign_up} />
             <Stack.Screen name={SCREEN_NAMES.Sign_in} component={Sign_in} />
             <Stack.Screen name={SCREEN_NAMES.OTP} component={OTP} />

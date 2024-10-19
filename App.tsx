@@ -1,14 +1,30 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import Auth_stack from "./src/navigation/Auth_stack"
-import { navigationRef } from "./src/navigation/navigationRef"
-import Toast from 'react-native-toast-message';
-import { toastConfig } from "./src/utiltes/toastConfig"
+import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/redux/store';
+import AppNavigator from './src/navigation/AppNavigator';
+import { AdsConsent, AdsConsentStatus } from 'react-native-google-mobile-ads';
+import Setting from './src/screens/Main/Setting';
+import Rank from './src/screens/Main/Rank';
+
 export default function App() {
+  useEffect(() => {
+    // Request Ads consent information when the app loads
+    AdsConsent.requestInfoUpdate().then((consentStatus: any) => {
+      if (consentStatus === AdsConsentStatus.REQUIRED) {
+        AdsConsent.showForm().then((newStatus: any) => {
+          // Optionally handle the new consent status here
+        });
+      }
+    });
+  }, []);
+
   return (
-    <NavigationContainer ref={navigationRef}>
-      <Auth_stack />
-      <Toast config={toastConfig} />
-    </NavigationContainer>
+
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AppNavigator />
+      </PersistGate>
+    </Provider>
   );
 }

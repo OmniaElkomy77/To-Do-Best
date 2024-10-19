@@ -1,5 +1,3 @@
-import { Children } from "react";
-
 const logo = require("../assets/logo.png");
 const signup = require("../assets/signup.png");
 const signin = require("../assets/signin.png");
@@ -201,6 +199,10 @@ const Vietnam = require("../assets/Vietnam.png")
 const Yemen = require("../assets/Yemen.png")
 const Zambia = require("../assets/Zambia.png")
 const Zimbabwe = require("../assets/Zimbabwe.png")
+
+const settings = require("../assets/settings.png")
+const loading = require("../lotties/loading.json")
+const emptylist = require("../lotties/emptylist.json")
 const images = {
     logo,
     signup,
@@ -403,10 +405,8 @@ const images = {
     Vietnam,
     Yemen, Zambia,
     Zimbabwe,
-
-
-
-
-
+    settings,
+    loading,
+    emptylist
 }
 export default images

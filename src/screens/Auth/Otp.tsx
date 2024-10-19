@@ -11,11 +11,13 @@ import { useRoute, RouteProp } from "@react-navigation/native";
 import { IScreenParams } from '../../navigation/Screen_name'; // Adjust the import path as needed
 import { postApi } from "../../utiltes/Api_helper";
 import APIS from "../../utiltes/Api";
-
+import { useDispatch, UseDispatch } from "react-redux";
+import { Api_post_redux } from "../../redux/postApi";
 type OTPScreenRouteProp = RouteProp<IScreenParams, "OTP">;
 
 const OTP = (props: any) => {
     const { navigation } = props;
+    const dispatch = useDispatch()
     const route = useRoute<OTPScreenRouteProp>();
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const [email, setEmail] = useState<string>("");
@@ -89,10 +91,19 @@ const OTP = (props: any) => {
                 email: email,
                 code: otpCode,
             };
-            postApi(APIS.otp, data_to_send, setLoading, () => {
-                // handle success
-            }, stopTimer); // Pass stopTimer as a callback
+            Api_post_redux(
+                dispatch,
+                APIS.otp,
+                data_to_send,
+                setLoading,
+                (email, token) => { },
+                stopTimer,
+            )
+            // postApi(APIS.otp, data_to_send, setLoading, () => {
+            //     // handle success
+            // }, stopTimer); // Pass stopTimer as a callback
         }
+
     };
 
     const handleResendOtp = () => {

@@ -102,11 +102,13 @@ const SignUp = (props: Props) => {
         setIsGenderModalVisible(true);
     };
 
-    const handleCloseGenderModal = (gender: string) => {
+    const handleCloseGenderModal = (gender: string | null, error: boolean) => {
         if (gender) {
             setSelectedGender(gender);
+            setGenderError(false); // Clear error if a valid gender is selected
+        } else if (!gender && !error && !selectedGender) {
+            setGenderError(true); // Set error if no gender was selected
         }
-        setGenderError(!gender);
         setIsGenderModalVisible(false);
     };
 
@@ -151,7 +153,7 @@ const SignUp = (props: Props) => {
                         icon_name="lock"
                         onChangeText={handleChange('password')}
                         onBlur={handleBlur('password')}
-                        value={values.password}
+                        value={values.password || ""}
                         error={touched.password && errors.password}
                         secureTextEntry
                         errorMessage={touched.password && errors.password ? errors.password : null}
@@ -161,7 +163,7 @@ const SignUp = (props: Props) => {
                         icon_name="lock"
                         onChangeText={handleChange('password_confirmation')}
                         onBlur={handleBlur('password_confirmation')}
-                        value={values.password_confirmation}
+                        value={values.password_confirmation || ""}
                         error={touched.password_confirmation && errors.password_confirmation}
                         secureTextEntry
                         errorMessage={touched.password_confirmation && errors.password_confirmation ? errors.password_confirmation : null}

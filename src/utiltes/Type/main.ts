@@ -1,9 +1,11 @@
+import { string } from "yup";
+
 export interface IUserData {
     id?: number;
     username: string;
     email: string;
-    password: string;
-    password_confirmation: string;
+    password?: string;
+    password_confirmation?: string;
 };
 
 export interface IUserlogin {

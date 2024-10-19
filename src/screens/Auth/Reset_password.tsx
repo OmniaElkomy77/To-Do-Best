@@ -24,7 +24,7 @@ const ResetPassword = (props: any) => {
                 ...itemValues,
                 token
             }
-            console.log(data_to_send)
+            // console.log(data_to_send)
             postApi(APIS.reset_password, data_to_send, setLoading, () => {
                 setLoading(false);
                 navigation.navigate("Sign_in")

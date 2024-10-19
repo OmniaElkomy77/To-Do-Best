@@ -12,19 +12,30 @@ import { IUserlogin } from "../../utiltes/Type/main";
 import images from "../../common/images";
 import { postApi } from "../../utiltes/Api_helper";
 import APIS from "../../utiltes/Api";
-
+import { Api_post_redux } from "../../redux/postApi"
+import { useDispatch } from "react-redux";
+import { signinUser } from "../../redux/slices/userSlices"
 const Sign_in = (props: any) => {
     const { navigation } = props;
     const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch();
     const { values, handleChange, handleBlur, errors, handleSubmit, touched } = useFormik({
-        ...SignInSchema, onSubmit: (itemValues: IUserlogin) => {
+        ...SignInSchema,
+        onSubmit: (itemValues: IUserlogin) => {
 
-            // console.log(itemValues)
+
             setLoading(true)
-            postApi(APIS.signin, itemValues, setLoading, () => {
+            // postApi(APIS.signin, itemValues, setLoading, () => {
 
-            }, () => { });
+            // }, () => { });
 
+            Api_post_redux(
+                dispatch,
+                APIS.signin,
+                itemValues,
+                setLoading,
+                (email, token) => { },
+                () => { })
         }
 
 
