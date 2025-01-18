@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
         backgroundColor: themes.white,
 
     },
+    container: {
+        // marginVertical: 10
+    }
 })
 
 export default styles
