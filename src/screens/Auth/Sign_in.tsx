@@ -66,7 +66,6 @@ const Sign_in = (props: any) => {
           onPress2={navigate_toActivateaccount}
           activate_account={true}
         />
-        <AdBanner />
         <View style={styles.container}>
           <AppInput
             placeholder="Email"

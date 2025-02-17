@@ -101,6 +101,14 @@ const style = StyleSheet.create({
         padding: 10,
         backgroundColor: themes.white,
         elevation: 4,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowColor: 'black',
+        shadowOpacity: 0.6,
+        shadowRadius: 2,
+        marginVertical: 10,
     },
     icon_container: {
         width: "20%",

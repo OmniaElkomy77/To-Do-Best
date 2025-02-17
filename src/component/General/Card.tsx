@@ -258,13 +258,22 @@ const style = StyleSheet.create({
         borderBottomRightRadius: 60,
         margin: 10,
         elevation: 4,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowColor: 'black',
+        shadowOpacity: 0.6,
+        shadowRadius: 2,
     },
     input: {
+        height: 40,
         borderBottomWidth: 1,
         borderBottomColor: themes.primaryColor,
         width: "100%",
         alignSelf: "center",
         color: themes.black,
+        marginTop: 10
     },
     characterCount: {
         textAlign: 'right',
@@ -301,6 +310,14 @@ const style = StyleSheet.create({
         alignItems: 'center',
         margin: 15,
         elevation: 4,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowColor: 'black',
+        shadowOpacity: 0.6,
+        shadowRadius: 2,
+        marginVertical: 10,
     },
     dateButtonText: {
         color: themes.primaryColor,

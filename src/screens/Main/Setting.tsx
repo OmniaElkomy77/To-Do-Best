@@ -283,10 +283,17 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         backgroundColor: themes.white,
         elevation: 7,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+          },
+          shadowColor: 'black',
+          shadowOpacity: 0.6,
+          shadowRadius: 2,
         marginVertical: 20,
         borderRadius: 20,
         paddingVertical: 12,
-        paddingHorizontal: 10,
+        paddingHorizontal: 16,
     },
     deactivateButton: {
         height: 70,

@@ -8,6 +8,7 @@ import mobileAds from 'react-native-google-mobile-ads';
 import InternetConnectionView from './src/component/General/InternetConnectionView';
 import ErrorBoundary from './src/component/General/ErrorBoundry';
 import Splash_Screen from './src/screens/Splash/Splash_Screen';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 export default function App() {
   useEffect(() => {
@@ -30,10 +31,17 @@ export default function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ErrorBoundary>
+          <SafeAreaView style={styles.container}>
           <AppNavigator />
+          </SafeAreaView>
         </ErrorBoundary>
       </PersistGate>
       <InternetConnectionView />
     </Provider>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+});

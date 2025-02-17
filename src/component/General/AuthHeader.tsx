@@ -29,7 +29,7 @@ export default function AuthHeader(props: IHeader) {
       )}
 
       <View style={styles.logo_container}>
-        <Image source={photo} style={styles.logo_style} />
+        <Image source={photo} style={styles.logo_style} resizeMode="contain" />
       </View>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.text_container}>
