@@ -165,6 +165,13 @@ const style = StyleSheet.create({
         borderTopLeftRadius: 50,
         borderBottomRightRadius: 50,
         elevation: 4,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowColor: 'black',
+        shadowOpacity: 0.6,
+        shadowRadius: 2,
         marginVertical: 10,
     },
     checkbox_container: {

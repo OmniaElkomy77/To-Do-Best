@@ -27,7 +27,16 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 25,
-        elevation: 4
+        elevation: 4,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowColor: 'black',
+        shadowOpacity: 0.6,
+        shadowRadius: 2,
+        marginVertical: 10,
+        
     },
     content: {
         flexDirection: 'row',

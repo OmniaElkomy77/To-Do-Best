@@ -1,4 +1,9 @@
 {
   "name": "To_Do_Best",
-  "displayName": "To_Do_Best"
+  "displayName": "To_Do_Best",
+    "react-native-google-mobile-ads": {
+      "android_app_id": "ca-app-pub-1049231223466753~4247891879",
+      "ios_app_id": "ca-app-pub-1049231223466753~1558149354"
+    }
+  
 }
